@@ -13,16 +13,16 @@ dotenv.config()
 //DB connection
 connectDB()
 
-app.get("/heart-beat", (req, res) => {
-  res.send("API is working fine 💓!!!");
-});
-
 //middlewares
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
 app.use(morgan('dev'))
 app.use('/api', userRouter)
+
+app.get("/heart-beat", (req, res) => {
+  res.send("API is working fine 💓!!!");
+});
 
 const PORT = process.env.PORT || 1000
 
